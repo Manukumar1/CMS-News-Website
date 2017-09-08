@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2017 at 03:10 PM
+-- Generation Time: Sep 08, 2017 at 07:36 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -60,7 +60,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`) VALUES
-(1, 'mk080698@gmail.com', '0ac4ef56db0dd6d3f87fa6a4c876bf483ddea32b08472fa5cae7403a3e22761b87c5decd7756889370ae2f5b295f8389a1f979257c142fd6044ac503fe0ecba7', 'Manukumar Rudresh');
+(1, 'mk080698@gmail.com', '0ac4ef56db0dd6d3f87fa6a4c876bf483ddea32b08472fa5cae7403a3e22761b87c5decd7756889370ae2f5b295f8389a1f979257c142fd6044ac503fe0ecba7', 'Manukumar Rudresh'),
+(2, 'abc@gmail.com', 'MMproject', 'ABC'),
+(3, 'cde@gmail.com', 'abcde', 'CDE');
 
 --
 -- Indexes for dumped tables
@@ -86,12 +88,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
