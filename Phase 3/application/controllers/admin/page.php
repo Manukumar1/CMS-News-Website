@@ -12,11 +12,29 @@ class Page extends Admin_Controller
 	{
 		//Fetch all pages
 		$this->data['pages'] = $this->page_m->get_with_parent();
+		
 		//Load view
 		$this->data['subview'] = 'admin/page/index';
 		$this->load->view('admin/_layout_main', $this->data);
 	}
  
+
+	public function order ()
+	{
+		$this->data['sortable'] = TRUE;
+		$this->data['subview'] = 'admin/page/order';
+		$this->load->view('admin/_layout_main', $this->data);
+	}
+
+	public function order_ajax ()
+	{
+		//Fetch all pages
+		$this->data['pages'] = $this->page_m->get_nested();
+		
+		//Load view
+		$this->load->view('admin/page/order_ajax', $this->data);
+	}
+
 	public function edit($id = NULL) 
 	{
 		//Fetch a page or set a new one

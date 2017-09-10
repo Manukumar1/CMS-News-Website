@@ -13,6 +13,11 @@
     <!-- Optional theme -->
     <link href="<?php echo base_url('public_html/css/bootstrap-theme.min.css'); ?>" rel="stylesheet">
 
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="<?php echo base_url('public_html/js/bootstrap.min.js'); ?>"></script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- TinyMCE -->
     <script type="text/javascript" src="<?php echo base_url('public_html/js/tiny_mce/tiny_mce_dev.js'); ?>"></script>
