@@ -35,7 +35,14 @@ class User extends Admin_Controller
 		//Process the form
 		if ($this->form_validation->run() == TRUE) {
 			$data = $this->user_m->array_from_post(array('name', 'email', 'password'));
-			$data['password'] = $this->page_m->hash($data['password']);
+
+			if(!empty($data['password'])) {
+			    $data['password'] = $this->user_m->hash($data['password']);
+			} else {
+			    // We don't save an empty password
+			    unset($data['password']);
+			}
+			// $data['password'] = $this->page_m->hash($data['password']);
 			$this->user_m->save($data, $id);
 			redirect('admin/user');
 		}
@@ -81,6 +88,12 @@ class User extends Admin_Controller
 	public function logout() {
 		$this->user_m->logout();
 		redirect('admin/user/login');
+	}
+
+	public function loaddata(){
+		$sql = $this->db->query("select * from users")->result();
+
+		echo json_encode($sql);
 	}
 
 	public function _unique_email($str)

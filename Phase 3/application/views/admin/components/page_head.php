@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -10,6 +10,10 @@
     <!-- Bootstrap -->
     <link href="<?php echo base_url('public_html/css/bootstrap.min.css'); ?>" rel="stylesheet">
     
+    <link href="<?php echo base_url('public_html/css/admin.css'); ?>" rel="stylesheet">
+
+    <link href="<?php echo base_url('public_html/css/datepicker.css'); ?>" rel="stylesheet">
+
     <!-- Optional theme -->
     <link href="<?php echo base_url('public_html/css/bootstrap-theme.min.css'); ?>" rel="stylesheet">
 
@@ -17,8 +21,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo base_url('public_html/js/bootstrap.min.js'); ?>"></script>
+    <script src="<?php echo base_url('public_html/js/bootstrap-datepicker.js'); ?>"></script>
+
+    <?php if(isset($sortable) && $sortable === TRUE); ?>
+    <script src="<?php echo base_url('public_html/js/jquery-ui-1.9.2.custom.min.js'); ?>"></script>
+    <script src="<?php echo base_url('public_html/js/jquery.mjs.nestedSortable.js'); ?>"></script>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
     <!-- TinyMCE -->
     <script type="text/javascript" src="<?php echo base_url('public_html/js/tiny_mce/tiny_mce_dev.js'); ?>"></script>
     <script type="text/javascript">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2017 at 07:36 PM
+-- Generation Time: Oct 10, 2017 at 09:22 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -28,19 +28,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `pages` (
   `id` int(11) UNSIGNED NOT NULL,
-  `title` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `slug` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `slug` varchar(100) NOT NULL,
   `order` int(11) NOT NULL,
-  `body` text CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `body` text NOT NULL,
+  `parent_id` int(11) UNSIGNED DEFAULT '0',
+  `template` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `pages`
 --
 
-INSERT INTO `pages` (`id`, `title`, `slug`, `order`, `body`) VALUES
-(1, 'Homepage', '/', 1, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. '),
-(2, 'about', 'about', 2, 'Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.');
+INSERT INTO `pages` (`id`, `title`, `slug`, `order`, `body`, `parent_id`, `template`) VALUES
+(1, 'Homepage', 'homepage', 0, 'This is the homepage.', 0, 'homepage'),
+(2, 'News archive', 'news-archive', 0, '<p>This is news archive.</p>', 0, 'news_archive'),
+(3, 'About', 'about', 0, '<p>This is the about page.</p>', 0, 'page'),
+(4, 'Contact', 'contact', 0, '<p>This is the contact page.</p>', 0, 'page');
 
 -- --------------------------------------------------------
 
@@ -61,8 +65,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`) VALUES
 (1, 'mk080698@gmail.com', '0ac4ef56db0dd6d3f87fa6a4c876bf483ddea32b08472fa5cae7403a3e22761b87c5decd7756889370ae2f5b295f8389a1f979257c142fd6044ac503fe0ecba7', 'Manukumar Rudresh'),
-(2, 'abc@gmail.com', 'MMproject', 'ABC'),
-(3, 'cde@gmail.com', 'abcde', 'CDE');
+(2, 'abc@gmail.com', 'd4826af47ed9e96e4fb355530f7c3d1011c62cfea36e801c110453009cdaa1e1d21fe9228ace99a598e2b593eb490a5c50b19b976aebf568b95a070e106fc973', 'ABC'),
+(3, 'cde@gmail.com', '644dbff38986ecd7bedef799bb535ebb3acaf0236d1c4ee1d6109c518d0adec2d2ec200c042bf8e67dffc8a4fef20d653c36e5a99e7a53fc9606e5fbab2c8f93', 'CDE');
 
 --
 -- Indexes for dumped tables
@@ -88,7 +92,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
